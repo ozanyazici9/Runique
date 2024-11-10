@@ -1,10 +1,11 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("com.android.library")
+    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
-    namespace = "com.ozanyazici.auth.data"
+    namespace = "com.plcoding.run.presentation"
     compileSdk = 34
 
     defaultConfig {
@@ -24,16 +25,20 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
 }
 
 dependencies {
-    implementation(projects.auth.domain)
+    implementation(libs.coil.compose)
+    implementation(libs.google.maps.android.compose)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.timber)
+
     implementation(projects.core.domain)
-    implementation(projects.core.data)
+    implementation(projects.run.domain)
 }

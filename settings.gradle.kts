@@ -19,6 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "Runique"
 include(":app")
 include(":auth:data")
@@ -26,11 +27,12 @@ include(":auth:domain")
 include(":auth:presentation")
 include(":core:presentation:designsystem")
 include(":core:presentation:ui")
+include(":core:database")
 include(":core:domain")
 include(":core:data")
-include(":core:databese")
 include(":run:data")
 include(":run:domain")
-include(":run:prensentation")
 include(":run:location")
 include(":run:network")
+include(":core:database")
+include(":run:presentation")
