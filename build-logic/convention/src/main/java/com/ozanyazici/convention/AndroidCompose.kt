@@ -8,13 +8,16 @@ internal fun Project.configureAndroidCompose(
     commonExtension: CommonExtension<*, *, *, *, *, *>
 ) {
     commonExtension.run {
+        pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
+
         buildFeatures {
             compose = true
         }
 
-        composeOptions {
+        /*composeOptions {
             kotlinCompilerExtensionVersion = libs.findVersion("composeCompiler").get().toString()
         }
+         */
 
         dependencies {
             val bom = libs.findLibrary("androidx.compose.bom").get()
