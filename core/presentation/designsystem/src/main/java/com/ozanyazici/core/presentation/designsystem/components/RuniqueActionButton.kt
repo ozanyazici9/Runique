@@ -50,7 +50,6 @@ fun RuniqueActionButton(
                 .fillMaxWidth()
                 .padding(vertical = 8.dp),
             contentAlignment = Alignment.Center
-
         ) {
             CircularProgressIndicator(
                 modifier = Modifier
@@ -64,7 +63,6 @@ fun RuniqueActionButton(
                 modifier = Modifier
                     .alpha(if(isLoading) 0f else 1f),
                 fontWeight = FontWeight.Medium
-
             )
         }
     }
