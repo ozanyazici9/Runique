@@ -9,13 +9,13 @@ class UserDataValidator(
     }
 
     fun validatePassword(password: String): PasswordValidationState {
-        val hasMinLenght = password.length >= MIN_PASSWORD_LENGTH
+        val hasMinLength = password.length >= MIN_PASSWORD_LENGTH
         val hasDigit = password.any{ it.isDigit() }
-        val hasLowerCaseCharacter = password.any{ it.isDigit() }
-        val hasUpperCaseCharacter = password.any{ it.isDigit() }
+        val hasLowerCaseCharacter = password.any{ it.isLowerCase() }
+        val hasUpperCaseCharacter = password.any{ it.isUpperCase() }
 
         return PasswordValidationState(
-            hasMinLength = hasMinLenght,
+            hasMinLength = hasMinLength,
             hasNumber = hasDigit,
             hasLowerCaseCharacter = hasLowerCaseCharacter,
             hasUpperCaseCharacter = hasUpperCaseCharacter
