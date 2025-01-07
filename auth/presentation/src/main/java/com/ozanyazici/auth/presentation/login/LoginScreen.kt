@@ -72,7 +72,7 @@ fun LoginScreenRoot(
         state = viewModel.state,
         onAction = { action ->
             when(action) {
-                is LoginAction.OnLoginClick -> onSignUpClick()
+                is LoginAction.OnRegisterClick -> onSignUpClick()
                 else -> Unit
             }
             viewModel.onAction(action)
