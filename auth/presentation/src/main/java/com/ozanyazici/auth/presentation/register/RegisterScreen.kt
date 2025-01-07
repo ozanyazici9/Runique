@@ -37,7 +37,6 @@ import com.ozanyazici.core.presentation.designsystem.CrossIcon
 import com.ozanyazici.core.presentation.designsystem.EmailIcon
 import com.ozanyazici.core.presentation.designsystem.Poppins
 import com.ozanyazici.core.presentation.designsystem.RuniqueDarkRed
-import com.ozanyazici.core.presentation.designsystem.RuniqueGray
 import com.ozanyazici.core.presentation.designsystem.RuniqueGreen
 import com.ozanyazici.core.presentation.designsystem.RuniqueTheme
 import com.ozanyazici.core.presentation.designsystem.components.GradientBackground
@@ -106,7 +105,7 @@ private fun RegisterScreen(
                 withStyle(
                     style = SpanStyle(
                         fontFamily = Poppins,
-                        color = RuniqueGray
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 ) {
                     append(stringResource(id = R.string.already_have_an_account))

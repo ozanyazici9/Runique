@@ -9,7 +9,6 @@ import com.ozanyazici.auth.domain.AuthRepository
 import com.ozanyazici.auth.domain.UserDataValidator
 import com.ozanyazici.auth.presentation.R
 import com.ozanyazici.core.domain.util.DataError
-import com.ozanyazici.core.domain.util.Error
 import com.ozanyazici.core.domain.util.Result
 import com.ozanyazici.core.presentation.ui.UiText
 import com.ozanyazici.core.presentation.ui.asUiText
@@ -62,8 +61,7 @@ class RegisterViewModel(
                 state = state.copy(
                     isPasswordVisible = !state.isPasswordVisible
                 )
-            }
-            else -> Unit
+            } else -> Unit
         }
     }
 
