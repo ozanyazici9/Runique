@@ -1,5 +1,5 @@
 [versions]
-agp = "8.8.0"
+agp = "8.9.0"
 androidTools = "31.7.2"
 core = "1.10.3"
 #noinspection RiskyLibrary
