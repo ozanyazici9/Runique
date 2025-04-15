@@ -30,6 +30,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
+import com.ozanyazici.core.presentation.designsystem.components.RuniqueActionButton
 import com.ozanyazici.core.presentation.designsystem.components.RuniqueDialog
 import com.ozanyazici.core.presentation.designsystem.components.RuniqueOutlinedActionButton
 import com.ozanyazici.run.presentation.active_run.maps.TrackerMap
@@ -159,6 +160,36 @@ private fun ActiveRunScreen(
         }
     }
 
+    if (!state.shouldTrack && state.hasStartedRunning) {
+        RuniqueDialog(
+            title = stringResource(id = R.string.running_is_paused),
+            onDismiss = {
+                onAction(ActiveRunAction.OnResumeRunClick)
+            },
+            description = stringResource(id = R.string.resume_or_finish_run),
+            primaryButton = {
+                RuniqueActionButton(
+                    text = stringResource(id = R.string.resume),
+                    isLoading = false,
+                    onClick = {
+                        onAction(ActiveRunAction.OnResumeRunClick)
+                    },
+                    modifier = Modifier.weight(1f)
+                )
+            },
+            secondaryButton = {
+                RuniqueOutlinedActionButton(
+                    text = stringResource(id = R.string.finish),
+                    isLoading = state.isSavingRun,
+                    onClick = {
+                        onAction(ActiveRunAction.OnFinishRunClick)
+                    },
+                    modifier = Modifier.weight(1f)
+                )
+            }
+        )
+    }
+
     if(state.showLocationRationale || state.showNotificationRationale) {
         RuniqueDialog(
             title = stringResource(id = R.string.permission_required),
@@ -181,7 +212,7 @@ private fun ActiveRunScreen(
                     onClick = {
                         onAction(ActiveRunAction.DismissRationaleDialog)
                         permissionLauncher.requestRuniquePermissions(context)
-                    }
+                    },
                 )
             }
         )
